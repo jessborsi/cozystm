@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>r/CozyGamers Topic Model - Keyword Subset STM</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">r/CozyGamers Topic Model</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html" rel="" target="">
+ <span class="menu-text">The Project</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./ipstm.html" rel="" target="">
+ <span class="menu-text">Initial Post STM</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./ssstm.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Keyword Subset STM</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./findings.html" rel="" target="">
+ <span class="menu-text">Reflection &amp; Next Steps</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Presentation.html" rel="" target="">
+ <span class="menu-text">Presentation</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html" rel="" target="">
+ <span class="menu-text">About Me</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#creating-the-subset" id="toc-creating-the-subset" class="nav-link active" data-scroll-target="#creating-the-subset"><strong>Creating the Subset</strong></a></li>
+  <li><a href="#tuning-the-model" id="toc-tuning-the-model" class="nav-link" data-scroll-target="#tuning-the-model"><strong>Tuning the Model</strong></a></li>
+  <li><a href="#k-60" id="toc-k-60" class="nav-link" data-scroll-target="#k-60"><strong>K = 60</strong></a></li>
+  <li><a href="#altering-the-topic-model-k-range" id="toc-altering-the-topic-model-k-range" class="nav-link" data-scroll-target="#altering-the-topic-model-k-range"><strong>Altering the Topic Model K Range</strong></a></li>
+  <li><a href="#k-25" id="toc-k-25" class="nav-link" data-scroll-target="#k-25"><strong>K = 25</strong></a></li>
+  <li><a href="#k-30" id="toc-k-30" class="nav-link" data-scroll-target="#k-30"><strong>K = 30</strong></a></li>
+  <li><a href="#but-what-does-it-mean" id="toc-but-what-does-it-mean" class="nav-link" data-scroll-target="#but-what-does-it-mean"><strong>But what does it MEAN?</strong></a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><strong>References</strong></a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Keyword Subset STM</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Following the first structured topic model (STM) and my assessment of it (we can trust it, yay!), I wanted to zoom in on how mental health language is interacting with this space. To do that, I made a subset of the original 995 posts by using the keywords “stress,” “relax,” “anxi,” and “mental health.” Having completed the first topic model, my goal was to see if posts that explicitly used mental health language were also following the same patterns as the larger sample.</p>
+<p>The method for this second topic model follows the same protocol as the first topic model, including by re-utilizing the code modeled and provided by Card (2023), Cook (2023), and Silge (2018). The change and challenge for this model came at the beginning as part of creating the subset to work with.</p>
+<p>So, to the code!</p>
+<section id="creating-the-subset" class="level2">
+<h2 class="anchored" data-anchor-id="creating-the-subset"><strong>Creating the Subset</strong></h2>
+<p>After reading in the previously cleaned CSV that contained the 995 posts to a fresh project (with a copy of the original code), I investigated a way to select only texts that contained keywords. This was a bit of a struggle, and I only found the right function by talking with Maddi’s sister Kate who also uses R, but from a more statistics-focused vantage. She recommended using “grepl” first, but that only identified the numbers of posts that contained the keywords. “Grep” turned out to be the correct function–retrieving both the number of posts and the text of the posts themselves–and resulted in the code below.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># how to select cells that contain certain words</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>stress <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="at">pattern =</span> <span class="st">"stress|anxi|relax|mental health"</span>, threads_clean<span class="sc">$</span>text, <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The result made a value in the R environment that contained 89 posts, or 8.94% of the original sample. While the number of posts alone doesn’t suggest significant discussion of mental health (and I hadn’t expected it to, given the Subreddit’s main goal is to discuss cozy games), the fact that mental health terms are present in this many posts is worth examination.</p>
+<p>With the value in hand, I tokenized it, removed stopwords, and converted it into a DFM. From there, I was able to move through the code already posted with the explanation of the first topic model to the point of tuning the number of topics.</p>
+</section>
+<section id="tuning-the-model" class="level2">
+<h2 class="anchored" data-anchor-id="tuning-the-model"><strong>Tuning the Model</strong></h2>
+<p>Like the first topic model, I generated several visualizations to help tune the topic model, including top words:</p>
+<p><img src="ssstmpics/wordprob.png" class="img-fluid"></p>
+<p>Many of the top words here are similar if not repeated from the same visualization in the first topic model, which was the first major clue that these posts were not outliers in the original sample. Rather, this made me suspect that they likely contained <em>both</em> words common to game suggestion posts and mental health language.</p>
+<p>To check this suspicion, I continued through the diagnostic code provided by Silge (2018).</p>
+<p><img src="ssstmpics/diag.png" class="img-fluid"></p>
+<p>Because of the lower number of posts represented in this topic model, the diagnostic above pretty clearly shows that anything above 40 topics (as evidenced by the residuals and semantic coherence) was going to be iffy. Thinking about it just in terms of sheer number, too, a higher number of topics for a sample of 89 would result in a more severe instance of the phenomena that I observed in the first topic model–the model having so many buckets to put things into that it ends up counting each post as its own topic, thus defeating the purpose of the computational method.</p>
+<p>To test this thought, I ran different K values.</p>
+</section>
+<section id="k-60" class="level2">
+<h2 class="anchored" data-anchor-id="k-60"><strong>K = 60</strong></h2>
+<p><img src="ssstmpics/ksixty.png" class="img-fluid"></p>
+<p>Welp, that’s not good. They are indeed being weighted the same owing to the number of topics relative to the number of available posts. Because of that, this visualization doesn’t draw attention toward larger trends in the sample, which is the actual goal.</p>
+</section>
+<section id="altering-the-topic-model-k-range" class="level2">
+<h2 class="anchored" data-anchor-id="altering-the-topic-model-k-range"><strong>Altering the Topic Model K Range</strong></h2>
+<p>Up to this point, I’d been using the K values that Julia Silge (2018) put forward in her tutorial, but since her tutorial (and my initial STM) dealt with a larger sample, it’s clear that those numbers won’t work for me. So, I substituted the K values that I thought were more likely to be successful. Based on what I was seeing already, I made an educated guess that the meaningful K value was going to be somewhere between 20 and 30, so I also added in K = 25 to see what would happen.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>many_models <span class="ot">&lt;-</span> <span class="fu">data_frame</span>(<span class="at">K =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">topic_model =</span> <span class="fu">future_map</span>(K, <span class="sc">~</span><span class="fu">stm</span>(stress_tokens_nostop_dfm, <span class="at">K =</span> .,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">verbose =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">seed =</span> <span class="cn">TRUE</span>)))</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="k-25" class="level2">
+<h2 class="anchored" data-anchor-id="k-25"><strong>K = 25</strong></h2>
+<p>And here’s what happened:</p>
+<p><img src="ssstmpics/ktwentyfive.png" class="img-fluid"></p>
+<p>Much better. The plot itself is showing more recognizable patterns and the topics are easier to parse. The expanded view of the top words in each topic revealed mental health language being paired with aesthetic words, like witchy, along with game titles. This indicated that mental health language was occuring in spaces where the main business of the Subreddit (game suggestions) was still dominant.</p>
+<pre><code>Topic 16 Top Words:
+     Highest Prob: really, game, like, games, played, play, looking, just, one, m 
+     FREX: witchy, really, watching, awesome, absolutely, anyone, character, style, right, learning 
+     Lift: witchy, -spiritfarer, -wytchwood, apreciated, audience, awhile, becoming, breath, btw, burn 
+     Score: apreciated, witchy, watching, really, literally, shame, struggle, watched, tears, awesome 
+</code></pre>
+</section>
+<section id="k-30" class="level2">
+<h2 class="anchored" data-anchor-id="k-30"><strong>K = 30</strong></h2>
+<p><img src="ssstmpics/kthirty.png" class="img-fluid"> I spent some time waffling between K = 25 and K = 30 because both were similarly sharp. In the end, K = 30 drew out mental health language, including terms like shame and struggle, that I didn’t specifically search for. Additionally, it brought them to greater prominence in the topics they appeared in.</p>
+<pre><code>Topic 16 Top Words:
+     Highest Prob: games, really, game, like, played, cozy, looking, play, anyone, m 
+     FREX: question, watching, really, anyone, hi, shame, struggle, tears, watched, storyline 
+     Lift: shame, struggle, tears, watched, -spiritfarer, -wytchwood, apreciated, audience, awhile, becoming 
+     Score: apreciated, watching, really, question, shame, struggle, watched, tears, differently, youtubers 
+</code></pre>
+<p>Coincidentally, the Topic 16 from K = 30 and the one from K = 25 above have a lot of the same terminology (referring to some common posts, certainly), but in K = 30 the “feeling” words shame and struggle are popping up in the FREX. This implies that this topic is narrow enough that these words are both exclusive to and meaningful within the topic. (Note: I don’t include “tears” here as a feeling word because it refers to the game title “Tears of the Kingdom,” an entry in the Zelda franchise that has similar aesthetics to the other titles in the topic.)</p>
+</section>
+<section id="but-what-does-it-mean" class="level2">
+<h2 class="anchored" data-anchor-id="but-what-does-it-mean"><strong>But what does it MEAN?</strong></h2>
+<p>The presence of mental health language in tandem with cozy video games <em>and</em> in a heavily moderated space where standalone discussions of mental health are not allowed is very encouraging. Yet, it would be premature to draw further conclusions because the presence of mental health language doesn’t account for context. Some of my search terms are common in everyday conversation, which makes it impossible to make a claim about how people are or are not regarding cozy games as anything beyond games just based on their presence.</p>
+<p>So, I should look to the future and next steps.</p>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references"><strong>References</strong></h2>
+<p>Card, D. (2023). week02 [Github repository]. Github. <a href="https://github.com/danieljcard1/demo_docs/tree/main/demos/week02" class="uri">https://github.com/danieljcard1/demo_docs/tree/main/demos/week02</a></p>
+<p>Card, D. (2023). week07 [Github repository]. Github. <a href="https://github.com/danieljcard1/demo_docs/tree/main/demos/week07" class="uri">https://github.com/danieljcard1/demo_docs/tree/main/demos/week07</a></p>
+<p>Cook, J. (2023). Extracting reddit data with R and the package RedditExtractoR (2023 update) [Video]. YouTube, <a href="https://www.youtube.com/watch?v=Snm0Azfi_hc" class="uri">https://www.youtube.com/watch?v=Snm0Azfi_hc</a></p>
+<p>Silge, J. (2018). Training, evaluating, and interpreting topic models. Julia Silge. <a href="https://juliasilge.com/blog/evaluating-stm/" class="uri">https://juliasilge.com/blog/evaluating-stm/</a></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

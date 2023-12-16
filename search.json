@@ -1,0 +1,261 @@
+[
+  {
+    "objectID": "Presentation.html#what-are-cozy-games",
+    "href": "Presentation.html#what-are-cozy-games",
+    "title": "r/CozyGamers Topic Models",
+    "section": "What are Cozy Games?",
+    "text": "What are Cozy Games?\n\n“Cozy Games” is a nebulous genre of video game that emphasizes cute aesthetics and relationship-building while de-emphasizing (or not containing) the competitive elements traditionally associated with games, like combat and time-pressure\nThese games are further characterized by:\n\nIncremental or Paced Progress\nEnvironment Customization and Decorative Choices\nPixelated or Highly Stylized Graphics"
+  },
+  {
+    "objectID": "Presentation.html#cooperation-not-combat",
+    "href": "Presentation.html#cooperation-not-combat",
+    "title": "r/CozyGamers Topic Models",
+    "section": "Cooperation, not Combat",
+    "text": "Cooperation, not Combat"
+  },
+  {
+    "objectID": "Presentation.html#beyond-gameplay",
+    "href": "Presentation.html#beyond-gameplay",
+    "title": "r/CozyGamers Topic Models",
+    "section": "Beyond Gameplay",
+    "text": "Beyond Gameplay\n\nWhile some games are designed as therapeutic tools first and games second, cozy games come from the other direction – they are games first which people use as stress relief or meditative practice\nThis phenomenon is not well studied (yet), but is evidenced by the boom of games like Animal Crossing and Stardew Valley during the COVID-19 pandemic"
+  },
+  {
+    "objectID": "Presentation.html#research-questions",
+    "href": "Presentation.html#research-questions",
+    "title": "r/CozyGamers Topic Models",
+    "section": "Research Questions",
+    "text": "Research Questions\n\nWhat conversations are typically started on r/CozyGamers?\nHow often does mental health language enter into these conversations and in what ways?\nOverall Question (perhaps spanning my entire degree?) – At what point can or will video games be prescribed for the management of stress?"
+  },
+  {
+    "objectID": "Presentation.html#topic-model-of-initial-posts",
+    "href": "Presentation.html#topic-model-of-initial-posts",
+    "title": "r/CozyGamers Topic Models",
+    "section": "Topic Model of Initial Posts",
+    "text": "Topic Model of Initial Posts\n\nAfter retrieving 995 initial posts from Oct 2023, I followed Julia’s Silge’s guide on structured topic modeling, using the detailed printout of topics to “tune” the number of topics until useful observations emerged\nVital Stats:\n\nK = 60 Topics (995 posts sorted into 60 buckets)\nThe unit of measurement is “post”\nStopwords were removed from the corpus prior to topic modeling, but words were not de-stemmed"
+  },
+  {
+    "objectID": "Presentation.html#assessing-the-model",
+    "href": "Presentation.html#assessing-the-model",
+    "title": "r/CozyGamers Topic Models",
+    "section": "Assessing the Model",
+    "text": "Assessing the Model\n The Topic 17 (2nd biggest topic) words above indicate the main goal of the Subreddit – asking for game suggestions.\nThe dominance of suggestion topics correlates to this being a heavily moderated and focused space."
+  },
+  {
+    "objectID": "Presentation.html#top-topics-cont.",
+    "href": "Presentation.html#top-topics-cont.",
+    "title": "r/CozyGamers Topic Models",
+    "section": "Top Topics, cont.",
+    "text": "Top Topics, cont.\n\nOther top topics (10, 47, 50, etc.) reinforce the main domain of the Subreddit as a place to start conversations by asking for game suggestions\nTopics 39, 52, 40, 18 discuss sales and platforms in the context of trying new games\nSmaller topics solicit more specific opinions on games in terms of playstyle or vibes (Halloweenish and witchy, apropos given these October posts), and often reference less ubiquitous titles"
+  },
+  {
+    "objectID": "Presentation.html#in-other-words",
+    "href": "Presentation.html#in-other-words",
+    "title": "r/CozyGamers Topic Models",
+    "section": "In other words –",
+    "text": "In other words –\nThe foundation for most communication in r/CozyGamers is suggestion-based. This tracks not only with general observations (from me, a committed Reddit lurker) and the enforced rules of the Subreddit. So, the topic model correctly identified things!\n\nBUT – where and how does mental health language enter the picture?"
+  },
+  {
+    "objectID": "Presentation.html#topic-model-of-targeted-mental-health-subset",
+    "href": "Presentation.html#topic-model-of-targeted-mental-health-subset",
+    "title": "r/CozyGamers Topic Models",
+    "section": "Topic Model of Targeted “Mental Health” Subset",
+    "text": "Topic Model of Targeted “Mental Health” Subset\n\nUsing the R Function “grep”, I selected posts with the keywords stress, relax, mental health, and anxi- (to capture anxiety and anxious)\nThe function returned 89 posts, or 8.94% of the original 995, and I ran the same topic model\nVital Stats:\n\nK = 30 Topics (89 posts sorted into 30 buckets)\nThe unit of measurement is “post”\nStopwords were removed, but the corpus was not de-stemmed"
+  },
+  {
+    "objectID": "Presentation.html#analysis",
+    "href": "Presentation.html#analysis",
+    "title": "r/CozyGamers Topic Models",
+    "section": "Analysis",
+    "text": "Analysis\n Topic 16, the largest topic, aligns with the Subreddit’s main goal – game suggestions. Other top topics, 21, 7, 6, and 11, also reflect this trend.\nThe main difference is that the suggestions and aesthetic requests are more specific in the larger topics. (re: “Cottagecore” spotting in the fourth largest topic)"
+  },
+  {
+    "objectID": "Presentation.html#observations-and-commonalities",
+    "href": "Presentation.html#observations-and-commonalities",
+    "title": "r/CozyGamers Topic Models",
+    "section": "Observations and Commonalities",
+    "text": "Observations and Commonalities\n\nThe smaller number of posts resulted in more variation in top words, but followed the same patterns as the larger set:\n\nGame Suggestions – both broad and very specific\nPlatform-Specific Conversation\nSteam Sales\n\nInstead of different conversations, the subset revealed that mental health terminology is integrated with the main topics already at play"
+  },
+  {
+    "objectID": "Presentation.html#proof-of-concept",
+    "href": "Presentation.html#proof-of-concept",
+    "title": "r/CozyGamers Topic Models",
+    "section": "Proof of Concept?",
+    "text": "Proof of Concept?\n\nWhile neither topic model showed a flood of mental health discussion (which would have been moderated out of the Subreddit anyway–), the presence of mental health terms alongside 8.94% of a random selection of posts is encouraging for future inquiry.\nAdditionally, the way mental health pairs with regular discussion of games is much like the original phenomenon – cozy games paired with mental health."
+  },
+  {
+    "objectID": "Presentation.html#questions",
+    "href": "Presentation.html#questions",
+    "title": "r/CozyGamers Topic Models",
+    "section": "Questions?",
+    "text": "Questions?"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Cozy Games and Mental Health Exploration",
+    "section": "",
+    "text": "Abstract\nThe goal of this exploratory, computational project is to create two structured topic models (STMs) with recent initial posts from r/CozyGamers. The first STM seeks to create a baseline of typical topics on the Subreddit, while the second homes in on the presence or absence of mental health language in a highly moderated space. I found that posts with some mental health language account for 9.84% of the original sample while following the same patterns of conversation which include game suggestions, solicitations for recommendations, and opinions on particular cozy games.\n\n\nThe Goal?\nThis project is a first step in my inquiry into how cozy games are being used beyond their original intention (as games) for mental health purposes like reducing stress. As such, the goal of this exploration was to check my own sense about how present mental health language is in spaces that discuss cozy games. A secondary goal was to apply and build my experience using R Studio.\n\n\nAbout the Site\nThis Quarto website is an experience report for my final project in WRIT 8520 which includes discussions of the goals, methods, and code that led to the topic models, their results, and the potential for future development. It was built using R Studio and is hosted via Github.\nCozy Grove Image, Epic Games Storefront"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Jess Borsi",
+    "section": "",
+    "text": "Jess Borsi is a PhD student in the Writing Studies Department at the University of Minnesota, Twin Cities. She’s an aspiring ludologist with special interest in the places where gaming and mental health rhetoric intersect. Before starting her PhD, Jess has been a technical editor, full-time instructor, a researcher in university advancement, and a tea parlour waitress. These experiences have primarily empowered her to be a snob about tea but also contribute to her fascination with play-enhanced learning. When not gaming, she enjoys cooking for friends, writing fiction, and watching far too many dramas.\nJess is originally from Florida, so has accidentally gone from one extreme of temperature to another.\nWinter hardmode has been selected and cannot be unselected."
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "Jess Borsi",
+    "section": "Education",
+    "text": "Education\nUniversity of Minnesota, Twin Cities | Minneapolis, MN | PhD in Rhetoric and Scientific & Technical Communication | Sept 2023 - Present\nFlorida International University | Miami, FL | MFA in Creative Writing | August 2015 - May 2019"
+  },
+  {
+    "objectID": "findings.html",
+    "href": "findings.html",
+    "title": "Reflection & Next Steps",
+    "section": "",
+    "text": "The biggest takeaway from this project and WRIT 8520 in general is in the importance of asking the right questions. Applied to both code and the larger rhetorical landscape I’m currently traversing, this means learning the language these spaces use to describe themselves and their methods through study, then conducting tests and explorations like this one to deepen my understanding. For example, in building this website, I ran into an issue where Quarto would run the code blocks I was intending to include only as visual aids to describe my process–or else Quarto would try to run pieces of code that were missing data or would take more than ten minutes to run.\nI knew there had to be a way to stop the code from running, and I set to Googling the issue. The original question “How do I stop code from running in Quarto?” went through several permutations. Two questions in, code became code blocks and, finally, I stumbled on the real issue: in Quarto’s tutorials, they refer to running code as executing.\nOnce I recognized that, the next question I typed led me right to the answer I needed.\nThis is tied to the murky prospect of trying to even define what we do and why, as Benjamin Miller (2022) tackled for dissertations in rhetoric and writing studies. To know what’s possible, I need to first build a linguistic foundation that allows me to interact with the space and seek models that will help me understand how to get from where I am to where I would like to be. So, I’ll start doing that now.\n\n\n\n“If I’d had more time” is a good place to start. Because of the constraints of the semester, I wasn’t able to enact the qualitative methods (primarily the rhetorical constellating as discussed in Tillery and Bloomfield 2022) that would have allowed me to draw more conclusions from the data I collected. As of now, what I can confidently claim is that mental health language is present in r/CozyGamers, but to understand the meaning of that presence, I’d use rhetorical constellations. By conducting a close reading of texts where the terms of interest are present, I’d seek to identify “prominences” – the major themes in the communication that reveal its “underlying ideological structure” (p.357). That is, this process would get me closer to understanding how and why mental health language is being used in reference to cozy games.\nAs for other models to use in the future (with other data sets), I searched from a more ludological standpoint. From my limited reading, topic modeling seems to be a popular computational method to examine discourse surrounding particular games (McKernan 2021) and genre analysis (Faisal and Peltoniemi 2018).\nFaisal and Peltoniemi (2018) particularly use topic modeling in a manner similar to Miller (2022) to “tag” games with content topics in order to define what genres they belong to – a useful endeavor since it’s challenging to define what playable digital media even is much of the time."
+  },
+  {
+    "objectID": "findings.html#reflection",
+    "href": "findings.html#reflection",
+    "title": "Reflection & Next Steps",
+    "section": "",
+    "text": "The biggest takeaway from this project and WRIT 8520 in general is in the importance of asking the right questions. Applied to both code and the larger rhetorical landscape I’m currently traversing, this means learning the language these spaces use to describe themselves and their methods through study, then conducting tests and explorations like this one to deepen my understanding. For example, in building this website, I ran into an issue where Quarto would run the code blocks I was intending to include only as visual aids to describe my process–or else Quarto would try to run pieces of code that were missing data or would take more than ten minutes to run.\nI knew there had to be a way to stop the code from running, and I set to Googling the issue. The original question “How do I stop code from running in Quarto?” went through several permutations. Two questions in, code became code blocks and, finally, I stumbled on the real issue: in Quarto’s tutorials, they refer to running code as executing.\nOnce I recognized that, the next question I typed led me right to the answer I needed.\nThis is tied to the murky prospect of trying to even define what we do and why, as Benjamin Miller (2022) tackled for dissertations in rhetoric and writing studies. To know what’s possible, I need to first build a linguistic foundation that allows me to interact with the space and seek models that will help me understand how to get from where I am to where I would like to be. So, I’ll start doing that now.\n\n\n\n“If I’d had more time” is a good place to start. Because of the constraints of the semester, I wasn’t able to enact the qualitative methods (primarily the rhetorical constellating as discussed in Tillery and Bloomfield 2022) that would have allowed me to draw more conclusions from the data I collected. As of now, what I can confidently claim is that mental health language is present in r/CozyGamers, but to understand the meaning of that presence, I’d use rhetorical constellations. By conducting a close reading of texts where the terms of interest are present, I’d seek to identify “prominences” – the major themes in the communication that reveal its “underlying ideological structure” (p.357). That is, this process would get me closer to understanding how and why mental health language is being used in reference to cozy games.\nAs for other models to use in the future (with other data sets), I searched from a more ludological standpoint. From my limited reading, topic modeling seems to be a popular computational method to examine discourse surrounding particular games (McKernan 2021) and genre analysis (Faisal and Peltoniemi 2018).\nFaisal and Peltoniemi (2018) particularly use topic modeling in a manner similar to Miller (2022) to “tag” games with content topics in order to define what genres they belong to – a useful endeavor since it’s challenging to define what playable digital media even is much of the time."
+  },
+  {
+    "objectID": "findings.html#next-steps",
+    "href": "findings.html#next-steps",
+    "title": "Reflection & Next Steps",
+    "section": "Next Steps",
+    "text": "Next Steps\nThis project has opened a lot of paths for me in terms of my thinking about what’s possible computationally, but the real limiting factor to continued inquiry is my current data set. Beyond the close reading I described above to glean more context about the mental health terms at play, this data has already offered what I was looking for with it: how often and in what way is mental health coming up on r/CozyGamers?\nDuring the presentation of this project, a suggestion was raised to come at the question from a different angle – instead of collecting data from a video game-focused Subreddit and checking it for mental health discussion, I might try targeting a mental health Subreddit and seeing how and where video game discussion comes into the picture. I like (and will follow) this suggestion because I can seek out a space that is less tightly regulated than r/CozyGamers and has a more narrative focus, which will allow for greater context around how cozy games are being used as mental health tools. The potential the resulting data has for close reading seems like it would be pretty rich, and it would allow me to employ Tillery and Bloomfield’s (2022) rhetorical constellation in a powerful way. I would also be able to experiment with targeting specific games and their impact on conversation as McKernan (2021) did for Papers, Please and the immigration discussions it sparked on forums.\nThere will also be a need to define what makes a cozy game cozy because on some level we will need to know what they are (and aren’t) in order to know what they do. There isn’t currently an accepted definition of the cozy genre, and best attempts reference characteristics, aesthetics, and gameplay, but often lean on an age-old “you know it when you see it” logic. So, this is a good opportunity to employ topic modeling techniques to get a good distance read on a large number of games, a la Miller (2022) and Faisal and Peltoniemi (2018).\nAt the end of this first foray into a cozy games project that I expect to stretch much, much further as I progress through this program, I’m left feeling that this is rich territory and I’m excited by what I might find next.\n\nLittle Misfortune Misfortune GIFfrom Little Misfortune GIFs"
+  },
+  {
+    "objectID": "findings.html#references",
+    "href": "findings.html#references",
+    "title": "Reflection & Next Steps",
+    "section": "References",
+    "text": "References\nFaisal, A., & Peltoniemi, M. (2018). Establishing Video Game Genres Using Data-Driven Modeling and Product Databases. Games and Culture, 13(1), 20–43. https://doi.org/10.1177/1555412015601541\nMcKernan, B. (2021). Digital Texts and Moral Questions About Immigration: Papers, Please and the Capacity for a Video Game to Stimulate Sociopolitical Discussion. Games and Culture, 16(4), 383–406. https://doi.org/10.1177/1555412019893882\nMiller, B. (2022). Distant readings of disciplinarity: knowing and doing in composition/rhetoric dissertations. Utah State University Press.\nTillery, D. & Bloomfield, E. F. (2022). Hyperrationality and rhetorical constellations in digital climate change denial: A multi-methodological analysis of the discourse of watts up with that. Technical Communication Quarterly, 13(4), 356-373. https://doi.org/10.1080/10572252.2021.2019317"
+  },
+  {
+    "objectID": "ipstm.html",
+    "href": "ipstm.html",
+    "title": "Initial Post STM",
+    "section": "",
+    "text": "Coming into this project, I had three main questions that I sought to start addressing by doing two structured topic models (STMs):\nIn the first topic model, I used the text of 995 initial posts on r/CozyGamers in October 2023. I used just the initial posts both because of time limitations and as a way to efficiently identify a baseline for “typical” conversation in the Subreddit.\nThe logic behind choosing r/CozyGamers for this exploration into computational rhetoric is because I am already familiar with the discourse that happens on the Subreddit–chief among it game suggestions. That is, since I’m not familiar with coding, I knew that if I could produce a topic model that found different permutations of how people recommend games, I could trust that the topic model is accurate, which would allow me to go forward into the territory I’m less familiar with (how does mental health language intersect with these conversations?).\nTo construct the code explored in depth below, I used and adapted code provided by Dan Card (2023), James Cook (2023), and Julia Silge (2018)."
+  },
+  {
+    "objectID": "ipstm.html#so-time-for-coding",
+    "href": "ipstm.html#so-time-for-coding",
+    "title": "Initial Post STM",
+    "section": "So, Time for Coding",
+    "text": "So, Time for Coding\n\nLoading Libraries\nTaking into account the need to scrape, clean, and visualize the data, I loaded all the libraries discussed and used for these purposes.\n```{r}\n\n# load quanteda family of packages\nlibrary(quanteda)\nlibrary(quanteda.dictionaries)\nlibrary(quanteda.textmodels)\nlibrary(quanteda.textplots)\nlibrary(quanteda.textstats)\n\n# load other libraries\nlibrary(readtext)\nlibrary(janitor)\nlibrary(spacyr)\nlibrary(tidyverse)\nlibrary(dplyr)\nlibrary(tidytext)\nlibrary(stm)\nlibrary(furrr)\nlibrary(ggthemes)\nlibrary(ggplot2)\nlibrary(scales)\n\n```\n\n\nScraping\nFollowing a tutorial by James Cook (2023) and using the “RedditExtractoR” package, I scraped recent initial posts, saved them as a CSV, then read them into the R environment.\n```{r}\nCGrecent &lt;- find_thread_urls(subreddit = \"CozyGamers\", sort_by = \"new\", period = \"month\")\n\nwrite.csv(CGrecent, \"data/recent_threads.csv\")\n\nrecent_threads &lt;- read.csv(\"data/recent_threads.csv\")\n\n```\n\n\nCleaning\nGuided by code provided by Dan Card (2023) which uses “tidyverse” and “janitor”, I cleaned the data and selected only the columns of interest.\n```{r}\nrecent_threads &lt;- clean_names(recent_threads)\n\nthreads_clean &lt;- recent_threads %&gt;% \n  select(title,\n         text,\n         comments)\n```\n\n\nMaking a DFM\nContinuing with the code demonstrated by Card (2023), I made a corpus object specifically from the text of the original posts, tokenized it, removed stopwords, and then converted that to a DFM. I also noticed during this process my unfortunate file hygiene practice of just making the title longer and longer…\n```{r}\n\nthread_corp &lt;- corpus(threads_clean, text_field = \"text\")\n\nthread_tokens &lt;- tokens(thread_corp, remove_punct = TRUE, remove_separators = TRUE, remove_numbers = TRUE)\n\nthread_tokens_nostop &lt;- thread_tokens %&gt;% tokens_remove(stopwords(\"en\"))\n\nthread_tokens_nostop_dfm &lt;- dfm(thread_tokens_nostop)\n\n```\n\n\nTopic Modeling!\nNow for the main event. Using code by Julia Silge (2018), I generated a topic model using the DFM.\n```{r}\n# The actual topic model, wheeeee\n\ntopic_model &lt;- stm(thread_tokens_nostop_dfm, K = 6, verbose = FALSE, init.type = \"Spectral\")\n\n```"
+  },
+  {
+    "objectID": "ipstm.html#visualizing-the-model",
+    "href": "ipstm.html#visualizing-the-model",
+    "title": "Initial Post STM",
+    "section": "Visualizing the Model",
+    "text": "Visualizing the Model\nTo begin assessing the topic model, I used the code below to visualize the results.\n```{r}\n\ntd_beta &lt;- tidy(topic_model)\n\ntd_beta %&gt;%\n  group_by(topic) %&gt;%\n  top_n(10, beta) %&gt;%\n  ungroup() %&gt;%\n  mutate(topic = paste0(\"Topic \", topic),\n         term = reorder_within(term, beta, topic)) %&gt;%\n  ggplot(aes(term, beta, fill = as.factor(topic))) +\n  geom_col(alpha = 0.8, show.legend = FALSE) +\n  facet_wrap(~ topic, scales = \"free_y\") +\n  coord_flip() +\n  scale_x_reordered() +\n  labs(x = NULL, y = expression(beta),\n       title = \"Topic Topics in r/CozyGamers Initial Posts Oct 2023\",\n       subtitle = \"Highest word probabilities for each topic\")\n\n```\nWhich produced this word probability graph:\n\nNow, more of the main event. Silge’s (2018) topic modeling tutorial took me through a “tuning process” for the topic model. First, it makes topic models with a range of topic numbers (sorting 995 posts into 20, 40, 50, 60, 70, 80, or 100 buckets). That done, these models are plotted against each other to measure the lower bound, residuals, semantic coherence, and held-out likelihood based on number of topics.\n```{r}\nmany_models &lt;- data_frame(K = c(20, 40, 50, 60, 70, 80, 100)) %&gt;%\n  mutate(topic_model = future_map(K, ~stm(thread_tokens_nostop_dfm, K = .,\n                                          verbose = FALSE)))\n\nheldout &lt;- make.heldout(thread_tokens_nostop_dfm)\n\nk_result &lt;- many_models %&gt;%\n  mutate(exclusivity = map(topic_model, exclusivity),\n         semantic_coherence = map(topic_model, semanticCoherence, thread_tokens_nostop_dfm),\n         eval_heldout = map(topic_model, eval.heldout, heldout$missing),\n         residual = map(topic_model, checkResiduals, thread_tokens_nostop_dfm),\n         bound =  map_dbl(topic_model, function(x) max(x$convergence$bound)),\n         lfact = map_dbl(topic_model, function(x) lfactorial(x$settings$dim$K)),\n         lbound = bound + lfact,\n         iterations = map_dbl(topic_model, function(x) length(x$convergence$bound)))\n\nk_result\n\nk_result %&gt;%\n  transmute(K,\n            `Lower bound` = lbound,\n            Residuals = map_dbl(residual, \"dispersion\"),\n            `Semantic coherence` = map_dbl(semantic_coherence, mean),\n            `Held-out likelihood` = map_dbl(eval_heldout, \"expected.heldout\")) %&gt;%\n  gather(Metric, Value, -K) %&gt;%\n  ggplot(aes(K, Value, color = Metric)) +\n  geom_line(linewidth = 1.5, alpha = 0.7, show.legend = FALSE) +\n  facet_wrap(~Metric, scales = \"free_y\") +\n  labs(x = \"K (number of topics)\",\n       y = NULL,\n       title = \"Model diagnostics by number of topics\",\n       subtitle = \"These diagnostics indicate that a good number of topics would be around 60\")\n\n```\nAnd the resulting graph for my sample was:\n\nAs someone unused to this sort of graph, this was hard for me to wrap my head around at first (and perhaps still now?). Through working with the models, examining Silge’s results, and a bit of extra reading, I found that there should be a balance between residuals and semantic coherence without heavily biasing either one. The reason behind this is that there is an inverse relationship between them.\nThat is, if I prioritized semantic coherence alone and put it at its highest level, 20 topics, the resulting model will have essentially smashed so many posts into the same bucket that commonality between them is inevitable. The trade off is that because coherence has been so emphasized, the uniqueness of the topics is obscured, leading to “same-y,” general topics. The same kind of opaqueness happens in reverse when residuals are prioritized at 100 topics–either way, the topic model ends up saying very little.\nSilge’s tutorial allows for each topic number (K value) to be plotted, a useful feature when I was working through the above learning experience, using the following code:\n```{r}\ntopic_model &lt;- k_result %&gt;% \n  filter(K == 60) %&gt;% \n  pull(topic_model) %&gt;% \n  .[[1]]\n\ntopic_model\n\ntd_beta &lt;- tidy(topic_model)\n\ntd_beta\n\ntd_gamma &lt;- tidy(topic_model, matrix = \"gamma\",\n                 document_names = rownames(thread_tokens_nostop_dfm))\n\ntd_gamma\n\ntop_terms &lt;- td_beta %&gt;%\n  arrange(beta) %&gt;%\n  group_by(topic) %&gt;%\n  top_n(7, beta) %&gt;%\n  arrange(-beta) %&gt;%\n  select(topic, term) %&gt;%\n  summarise(terms = list(term)) %&gt;%\n  mutate(terms = map(terms, paste, collapse = \", \")) %&gt;% \n  unnest(cols = c(terms))\n\ngamma_terms &lt;- td_gamma %&gt;%\n  group_by(topic) %&gt;%\n  summarise(gamma = mean(gamma)) %&gt;%\n  arrange(desc(gamma)) %&gt;%\n  left_join(top_terms, by = \"topic\") %&gt;%\n  mutate(topic = paste0(\"Topic \", topic),\n         topic = reorder(topic, gamma))\n\ngamma_terms %&gt;%\n  top_n(20, gamma) %&gt;%\n  ggplot(aes(topic, gamma, label = terms, fill = topic)) +\n  geom_col(show.legend = FALSE) +\n  geom_text(hjust = 0, nudge_y = 0.0005, size = 3,\n            family = \"IBMPlexSans\") +\n  coord_flip() +\n  scale_y_continuous(expand = c(0,0),\n                     limits = c(0, 0.09),\n                     labels = label_percent()) +\n  theme_tufte(base_family = \"IBMPlexSans\", ticks = FALSE) +\n  theme(plot.title = element_text(size = 16,\n                                  family=\"IBMPlexSans-Bold\"),\n        plot.subtitle = element_text(size = 13)) +\n  labs(x = NULL, y = expression(gamma),\n       title = \"Top 20 topics in r/CozyGamers' Oct 2023 Initial Posts\",\n       subtitle = \"With top words that contribute to each topic\")\n\n```\nAs part of my exploration, I plotted every K value allowed, but for brevity’s sake, I’ll include three examples below: K = 40, 60, and 80:"
+  },
+  {
+    "objectID": "ipstm.html#k-40",
+    "href": "ipstm.html#k-40",
+    "title": "Initial Post STM",
+    "section": "K = 40",
+    "text": "K = 40\n\n40 Topics produced a pretty readable set of word chunks that I could extrapolate from, but notice that most of them are dominated by general words common to the Subreddit like game, games, play, like, and just. The model needs to be a bit sharper for me to really understand what’s happening."
+  },
+  {
+    "objectID": "ipstm.html#k-60",
+    "href": "ipstm.html#k-60",
+    "title": "Initial Post STM",
+    "section": "K = 60",
+    "text": "K = 60\n\nEnter 60 Topics. The general language from the 40 model is still present, but it’s not as dominant as before, and more interesting, specific words are popping up, like wondering, chill, price, and cute. Additionally, game titles and platform names are more prevalent here, which is giving a more accurate look at how communication actually works on the Subreddit."
+  },
+  {
+    "objectID": "ipstm.html#k-80",
+    "href": "ipstm.html#k-80",
+    "title": "Initial Post STM",
+    "section": "K = 80",
+    "text": "K = 80\n\nAnd now we’ve gone too far the other direction. Notice how the topic proportions flatten out sooner and more dramatically than the other two K values? That tells me that these topics likely contain a similar number of posts in their topic bucket. So, instead of finding more interesting trends overall like K = 60, this one is playing a round of match three (or two or four)."
+  },
+  {
+    "objectID": "ipstm.html#digging-a-bit-deeper",
+    "href": "ipstm.html#digging-a-bit-deeper",
+    "title": "Initial Post STM",
+    "section": "Digging a Bit Deeper",
+    "text": "Digging a Bit Deeper\nAt this point, I was pretty sure that K = 60 was going to be the sweet spot, but I wanted to peek under the hood a bit more. So, using code from our class on topic modeling, I applied:\n```{r}\n\nlabelTopics(topic_model, n = 10)\n\n```\nThis gave me a more expanded (exploded?) view of the top words in each topic for K = 60. Below are the results for the top two topics.\nTopic 10 Top Words:\n     Highest Prob: game, just, get, good, know, play, really, can, want, anyone \n     FREX: good, get, know, recommend, just, game, anyone, sims, want, buy \n     Lift: tied, recommend, highly, wii, good, buy, horrible, anyone, artstyle, decide \n     Score: anyone, recommend, good, get, farm, sims, buy, fae, just, want \n\nTopic 17 Top Words:\n     Highest Prob: games, love, switch, cozy, suggestions, stardew, animal, crossing, like, new \n     FREX: suggestions, animal, crossing, switch, love, games, stardew, thank, new, deck \n     Lift: challenged, decks, granddaughter, halloweenish, https://reddit.com/link/17gfqu5/video/p8dt3ek34fwb1/player, https://www.youtube.com/watch?v=qcikxoen-ig, prefers, technologically, suggestions, slower \n     Score: suggestions, crossing, animal, switch, stardew, love, thank, deck, new, everyone \nYep. That seems about right, actually.\n\n\n\nMisfortune Little GIFfrom Misfortune GIFs\n\n\n\nBut I’ve essentially made a topic model to find what I already kind of knew was there. This makes sense when I specify that this is a first step, a testing procedure that will then allow me to look for what I’m really interested in: mental health language in this space. So–I did another topic model."
+  },
+  {
+    "objectID": "ipstm.html#references",
+    "href": "ipstm.html#references",
+    "title": "Initial Post STM",
+    "section": "References",
+    "text": "References\nCard, D. (2023). week02 [Github repository]. Github. https://github.com/danieljcard1/demo_docs/tree/main/demos/week02\nCard, D. (2023). week07 [Github repository]. Github. https://github.com/danieljcard1/demo_docs/tree/main/demos/week07\nCook, J. (2023). Extracting reddit data with R and the package RedditExtractoR (2023 update) [Video]. YouTube, https://www.youtube.com/watch?v=Snm0Azfi_hc\nSilge, J. (2018). Training, evaluating, and interpreting topic models. Julia Silge. https://juliasilge.com/blog/evaluating-stm/"
+  },
+  {
+    "objectID": "ssstm.html",
+    "href": "ssstm.html",
+    "title": "Keyword Subset STM",
+    "section": "",
+    "text": "Following the first structured topic model (STM) and my assessment of it (we can trust it, yay!), I wanted to zoom in on how mental health language is interacting with this space. To do that, I made a subset of the original 995 posts by using the keywords “stress,” “relax,” “anxi,” and “mental health.” Having completed the first topic model, my goal was to see if posts that explicitly used mental health language were also following the same patterns as the larger sample.\nThe method for this second topic model follows the same protocol as the first topic model, including by re-utilizing the code modeled and provided by Card (2023), Cook (2023), and Silge (2018). The change and challenge for this model came at the beginning as part of creating the subset to work with.\nSo, to the code!"
+  },
+  {
+    "objectID": "ssstm.html#creating-the-subset",
+    "href": "ssstm.html#creating-the-subset",
+    "title": "Keyword Subset STM",
+    "section": "Creating the Subset",
+    "text": "Creating the Subset\nAfter reading in the previously cleaned CSV that contained the 995 posts to a fresh project (with a copy of the original code), I investigated a way to select only texts that contained keywords. This was a bit of a struggle, and I only found the right function by talking with Maddi’s sister Kate who also uses R, but from a more statistics-focused vantage. She recommended using “grepl” first, but that only identified the numbers of posts that contained the keywords. “Grep” turned out to be the correct function–retrieving both the number of posts and the text of the posts themselves–and resulted in the code below.\n```{r}\n\n# how to select cells that contain certain words\nstress &lt;- grep(pattern = \"stress|anxi|relax|mental health\", threads_clean$text, value = TRUE)\n\n```\nThe result made a value in the R environment that contained 89 posts, or 8.94% of the original sample. While the number of posts alone doesn’t suggest significant discussion of mental health (and I hadn’t expected it to, given the Subreddit’s main goal is to discuss cozy games), the fact that mental health terms are present in this many posts is worth examination.\nWith the value in hand, I tokenized it, removed stopwords, and converted it into a DFM. From there, I was able to move through the code already posted with the explanation of the first topic model to the point of tuning the number of topics."
+  },
+  {
+    "objectID": "ssstm.html#tuning-the-model",
+    "href": "ssstm.html#tuning-the-model",
+    "title": "Keyword Subset STM",
+    "section": "Tuning the Model",
+    "text": "Tuning the Model\nLike the first topic model, I generated several visualizations to help tune the topic model, including top words:\n\nMany of the top words here are similar if not repeated from the same visualization in the first topic model, which was the first major clue that these posts were not outliers in the original sample. Rather, this made me suspect that they likely contained both words common to game suggestion posts and mental health language.\nTo check this suspicion, I continued through the diagnostic code provided by Silge (2018).\n\nBecause of the lower number of posts represented in this topic model, the diagnostic above pretty clearly shows that anything above 40 topics (as evidenced by the residuals and semantic coherence) was going to be iffy. Thinking about it just in terms of sheer number, too, a higher number of topics for a sample of 89 would result in a more severe instance of the phenomena that I observed in the first topic model–the model having so many buckets to put things into that it ends up counting each post as its own topic, thus defeating the purpose of the computational method.\nTo test this thought, I ran different K values."
+  },
+  {
+    "objectID": "ssstm.html#k-60",
+    "href": "ssstm.html#k-60",
+    "title": "Keyword Subset STM",
+    "section": "K = 60",
+    "text": "K = 60\n\nWelp, that’s not good. They are indeed being weighted the same owing to the number of topics relative to the number of available posts. Because of that, this visualization doesn’t draw attention toward larger trends in the sample, which is the actual goal."
+  },
+  {
+    "objectID": "ssstm.html#altering-the-topic-model-k-range",
+    "href": "ssstm.html#altering-the-topic-model-k-range",
+    "title": "Keyword Subset STM",
+    "section": "Altering the Topic Model K Range",
+    "text": "Altering the Topic Model K Range\nUp to this point, I’d been using the K values that Julia Silge (2018) put forward in her tutorial, but since her tutorial (and my initial STM) dealt with a larger sample, it’s clear that those numbers won’t work for me. So, I substituted the K values that I thought were more likely to be successful. Based on what I was seeing already, I made an educated guess that the meaningful K value was going to be somewhere between 20 and 30, so I also added in K = 25 to see what would happen.\n```{r}\n\nmany_models &lt;- data_frame(K = c(10, 20, 25, 30, 40, 50)) %&gt;%\n  mutate(topic_model = future_map(K, ~stm(stress_tokens_nostop_dfm, K = .,\n                                          verbose = FALSE,\n                                          seed = TRUE)))\n\n```"
+  },
+  {
+    "objectID": "ssstm.html#k-25",
+    "href": "ssstm.html#k-25",
+    "title": "Keyword Subset STM",
+    "section": "K = 25",
+    "text": "K = 25\nAnd here’s what happened:\n\nMuch better. The plot itself is showing more recognizable patterns and the topics are easier to parse. The expanded view of the top words in each topic revealed mental health language being paired with aesthetic words, like witchy, along with game titles. This indicated that mental health language was occuring in spaces where the main business of the Subreddit (game suggestions) was still dominant.\nTopic 16 Top Words:\n     Highest Prob: really, game, like, games, played, play, looking, just, one, m \n     FREX: witchy, really, watching, awesome, absolutely, anyone, character, style, right, learning \n     Lift: witchy, -spiritfarer, -wytchwood, apreciated, audience, awhile, becoming, breath, btw, burn \n     Score: apreciated, witchy, watching, really, literally, shame, struggle, watched, tears, awesome"
+  },
+  {
+    "objectID": "ssstm.html#k-30",
+    "href": "ssstm.html#k-30",
+    "title": "Keyword Subset STM",
+    "section": "K = 30",
+    "text": "K = 30\n I spent some time waffling between K = 25 and K = 30 because both were similarly sharp. In the end, K = 30 drew out mental health language, including terms like shame and struggle, that I didn’t specifically search for. Additionally, it brought them to greater prominence in the topics they appeared in.\nTopic 16 Top Words:\n     Highest Prob: games, really, game, like, played, cozy, looking, play, anyone, m \n     FREX: question, watching, really, anyone, hi, shame, struggle, tears, watched, storyline \n     Lift: shame, struggle, tears, watched, -spiritfarer, -wytchwood, apreciated, audience, awhile, becoming \n     Score: apreciated, watching, really, question, shame, struggle, watched, tears, differently, youtubers \n\nCoincidentally, the Topic 16 from K = 30 and the one from K = 25 above have a lot of the same terminology (referring to some common posts, certainly), but in K = 30 the “feeling” words shame and struggle are popping up in the FREX. This implies that this topic is narrow enough that these words are both exclusive to and meaningful within the topic. (Note: I don’t include “tears” here as a feeling word because it refers to the game title “Tears of the Kingdom,” an entry in the Zelda franchise that has similar aesthetics to the other titles in the topic.)"
+  },
+  {
+    "objectID": "ssstm.html#but-what-does-it-mean",
+    "href": "ssstm.html#but-what-does-it-mean",
+    "title": "Keyword Subset STM",
+    "section": "But what does it MEAN?",
+    "text": "But what does it MEAN?\nThe presence of mental health language in tandem with cozy video games and in a heavily moderated space where standalone discussions of mental health are not allowed is very encouraging. Yet, it would be premature to draw further conclusions because the presence of mental health language doesn’t account for context. Some of my search terms are common in everyday conversation, which makes it impossible to make a claim about how people are or are not regarding cozy games as anything beyond games just based on their presence.\nSo, I should look to the future and next steps."
+  },
+  {
+    "objectID": "ssstm.html#references",
+    "href": "ssstm.html#references",
+    "title": "Keyword Subset STM",
+    "section": "References",
+    "text": "References\nCard, D. (2023). week02 [Github repository]. Github. https://github.com/danieljcard1/demo_docs/tree/main/demos/week02\nCard, D. (2023). week07 [Github repository]. Github. https://github.com/danieljcard1/demo_docs/tree/main/demos/week07\nCook, J. (2023). Extracting reddit data with R and the package RedditExtractoR (2023 update) [Video]. YouTube, https://www.youtube.com/watch?v=Snm0Azfi_hc\nSilge, J. (2018). Training, evaluating, and interpreting topic models. Julia Silge. https://juliasilge.com/blog/evaluating-stm/"
+  }
+]
